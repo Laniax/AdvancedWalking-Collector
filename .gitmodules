@@ -1,0 +1,3 @@
+[submodule "lanapi"]
+	path = lanapi
+	url = git@github.com:Laniax/LanAPI.git
