@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="624.0" maxWidth="380.0" minHeight="624.0" minWidth="380.0" prefHeight="624.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scripts.advancedwalking.collector.GUIController">
+   <children>
+      <Text fill="#909090" layoutX="36.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AdvancedWalking - Community Data Collector">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Separator layoutX="38.0" layoutY="609.0" prefHeight="4.0" prefWidth="308.0" />
+      <TabPane prefHeight="475.0" prefWidth="381.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Objects">
+               <content>
+                  <Pane prefHeight="437.0" prefWidth="381.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="204.0" layoutX="12.0" layoutY="158.0" stroke="#727272" strokeType="INSIDE" width="350.0" />
+                        <Text layoutX="10.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected tile:" />
+                        <Text fx:id="selectedTile" layoutX="85.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="new RSTile(X, Y, Z);">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Object on selected tile: " />
+                        <ComboBox fx:id="selectedObjectType" layoutX="112.0" layoutY="172.0" prefHeight="25.0" prefWidth="233.0" />
+                        <Text layoutX="29.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Object type:" />
+                        <Text fx:id="selectedObjectName" layoutX="139.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use F1 to select a tile" />
+                        <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This part is for RSObjects. Here you can specify what stairs are and where they go, what doors are, what prayer altar objects are, gliders, etc." wrappingWidth="351.4741170704365">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="20.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please skip any objects with special requirements! Like needing a light source, lockpick, coins, quest or a specific skill level (guilds) before entering. We will have to come back for those later." textAlignment="CENTER" wrappingWidth="332.658203125">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+          <Tab text="Areas">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="51.0" layoutX="12.0" layoutY="172.0" stroke="#727272" strokeType="INSIDE" width="358.0" />
+                        <Text layoutX="12.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use F2 to draw an area, F3 to remove the last tile and F4 to select a preexisting area." wrappingWidth="349.99999594688416" />
+                        <Text layoutX="12.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This part is for areas. Here you can draw RSArea's and specify if its a Bank, Grand Exchange, Rune store, General store, etc." wrappingWidth="318.99999594688416">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="doneDrawingArea" layoutX="60.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="254.0" text="I am done drawing the area" />
+                        <Button fx:id="deleteSelectedArea" layoutX="60.0" layoutY="252.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="254.0" text="Delete the currently selected area" textFill="RED" />
+                        <Text layoutX="25.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This area is a:" />
+                        <ComboBox fx:id="selectedAreaType" layoutX="110.0" layoutY="184.0" prefHeight="25.0" prefWidth="244.0" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Separator layoutX="36.0" layoutY="574.0" prefHeight="4.0" prefWidth="308.0" />
+      <Button fx:id="sendData" layoutX="21.0" layoutY="532.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Send data to Laniax" />
+      <Button fx:id="getData" layoutX="156.0" layoutY="532.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="210.0" text="Receive preexisting data from Laniax" />
+      <ProgressIndicator fx:id="receiveProgress" layoutX="247.0" layoutY="485.0" progress="0.0" visible="false" />
+      <ProgressIndicator fx:id="sendProgress" layoutX="72.0" layoutY="485.0" progress="0.0" visible="false" />
+      <Separator layoutX="37.0" layoutY="473.0" prefHeight="4.0" prefWidth="308.0" />
+   </children>
+</Pane>
